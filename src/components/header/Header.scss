@@ -1,0 +1,57 @@
+.header {
+    background-color: #423E3E;
+    height: 70px;
+    width: 100%;
+    position: absolute;
+    border-bottom: 5px solid #410707;
+    
+    .container {
+        width: 1160px;
+        margin: auto;
+        display: flex;  
+        
+    }
+    .header__title {
+        font-weight: bold;
+        font-size: 33px;
+        line-height: 70px;
+        margin: 0;
+
+    }
+    .header__cinema-icon {
+        position: relative;
+        top: 0;
+        left: -125px;
+        z-index: 3;
+        width: 50px;
+        height: 40px;
+    }
+    .header-search {
+        border-left: 1px solid #5B5454;
+        padding: 0 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .header__input {
+        width: 400px;
+        height: 20px;
+    }
+    .header__profil {
+        margin-left: auto;
+        padding: 20px;
+        justify-content: column;
+        display: flex;  
+        text-align: center;
+        border-left: 1px solid #5B5454;
+
+        }
+    .header__search-icon {
+        width: 20px;
+        height: 20px;
+        padding-left: 10px;
+    }
+
+}
+
+
