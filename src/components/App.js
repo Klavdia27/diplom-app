@@ -1,14 +1,21 @@
 import Header from "./header/Header.jsx";
-
+import Nav from "./nav/Nav.jsx";
 
 import './App.scss';
 
 function App() {
   return (
     <div className="app">
-      <Header />
+      <div>
+        <Header />
+      </div>
+
+      <div className="navig">
+        <Nav/>
+      </div>
+
       
-    
+      
     </div>
   );
 }

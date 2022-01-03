@@ -1,6 +1,5 @@
 import React from "react";
 import "./Header.scss";
-
 import cinemaTicket from "./img/cinema-ticket.png";
 import searchFilm from "./img/search.png"
 
