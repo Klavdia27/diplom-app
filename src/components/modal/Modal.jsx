@@ -14,9 +14,9 @@ export class Modal extends React.Component {
             <div className="modal">
                 <div className="window"> 
                     <div className="header">
-                        <span> 
+                        <h2 className="title-film-modal"> 
                             {this.props.title}
-                        </span>
+                        </h2>
                         <button onClick={this.handleClose}>x</button>
                     </div>
                     <hr/>
