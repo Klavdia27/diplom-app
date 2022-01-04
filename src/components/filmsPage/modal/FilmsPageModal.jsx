@@ -8,7 +8,7 @@ export class FilmsPageModal extends React.Component {
         const film = this.props.film;
 
         return (
-            <Modal title = {`${film.name} (${film.year})`}
+            <Modal title = {`${film.Name} (${film.year})`}
                     onClose={this.props.onClose}>
 
                 <div className="films-page-modal"> 
