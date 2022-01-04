@@ -1,0 +1,14 @@
+.films-page-modal {
+    display: flex;
+    max-width: 900px;
+    width: 900px;
+    .avatar {
+        width: 300px;
+        padding-right: 20px;
+    }
+   .summery {
+       color: black;
+       display: flex;
+       flex-direction: column;
+   }
+}

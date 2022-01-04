@@ -1,0 +1,24 @@
+.films-page-card {
+    width: 250px;
+    padding: 2px;
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #423E3E;
+    border-radius: 5px;
+    cursor: pointer;
+
+    .avatar {
+        max-width: 245px;
+        border-radius: 5px;
+    }
+    .name {
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        text-align: center;
+        color: white;
+
+    }
+}

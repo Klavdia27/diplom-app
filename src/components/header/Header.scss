@@ -1,22 +1,21 @@
 .header {
-    background-color: #423E3E;
     height: 70px;
     width: 100%;
-    position: absolute;
-    border-bottom: 5px solid #410707;
+   
     
     .container {
         width: 1160px;
         margin: auto;
         display: flex;  
-        
+        border-bottom: 5px solid #410707;
+        background-color: #423E3E;
     }
     .header__title {
+        padding-left: 10px;
         font-weight: bold;
         font-size: 33px;
         line-height: 70px;
         margin: 0;
-
     }
     .header__cinema-icon {
         position: relative;
