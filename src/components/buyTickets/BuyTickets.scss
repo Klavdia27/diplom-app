@@ -1,0 +1,51 @@
+.scheme {
+  
+    padding: 30px;
+    background: rgba(36, 36, 36, 0.18);
+    border-radius: 10px;
+    margin-bottom: 40px;
+
+}
+.scheme-svg {
+    max-width: 1160px;
+    width: 1160px;
+    display: flex;  
+    margin: auto;
+    align-items: center;
+}
+.scheme path:not(.ligth) {
+    fill:rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+.scheme path:not(.ligth):hover {
+    fill:rgba(255, 255, 255, 0.5); 
+}
+.scheme path.active,
+.scheme path.active:hover  {
+    fill:#fe8e05;
+}
+.scheme path.booked,
+.scheme path.booked:hover  {
+    fill: rgba(255, 255, 255, 0.05);
+    cursor: not-allowed;
+}
+
+.legend {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    max-width: 1024px;
+    width: 90%;
+    margin: auto;
+    padding-top: 22px;
+    padding-bottom: 38px;
+}
+.legend-label {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    color:rgba(255, 255, 255, 0.5);
+}
+.legend svg {
+    margin-right: 15px;
+}

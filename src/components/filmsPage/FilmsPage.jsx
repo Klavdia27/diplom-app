@@ -18,6 +18,7 @@ export class FilmsPage extends React.Component {
         this.state = {
            films: [],
            isLoading: true,
+           isError: false,
         }
     }
 
@@ -25,6 +26,9 @@ export class FilmsPage extends React.Component {
        getFilms()
             .then((data) => {
                this.setState({ films: data, isLoading: false});
+            })
+            .catch((e) => {
+                this.setState({ isLoading: false, isError: true });
             })
     }
 
@@ -37,7 +41,13 @@ export class FilmsPage extends React.Component {
                 </div>
             )
         }
-
+        if (this.state.isError) {
+            return (
+                <div>
+                    Error...
+                </div>
+            )
+        }
         return (
             <div className="films-page">
                 {this.state.films.map(film => 
