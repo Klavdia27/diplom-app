@@ -9,18 +9,15 @@ export class Time extends React.Component {
         }
     }
 
-    // componentDidMount() {
-    //     //console.log("componentDidMount");
-    //     this.intervalId = setInterval(() => {
-    //         //console.log("tick");
-    //         this.setState({now : this.getTime()});
-    //     }, 1000);
-    // }
+    componentDidMount() {
+        this.intervalId = setInterval(() => {
+            this.setState({now : this.getTime()});
+        }, 1000);
+    }
 
-    // componentWillUnmount() {
-    //    // console.log("componentWillUnmount");
-    //     clearInterval(this.intervalId)
-    // }
+    componentWillUnmount() {
+        clearInterval(this.intervalId)
+    }
     
     getTime = () => new Date().toTimeString().substring(0, 8);
 

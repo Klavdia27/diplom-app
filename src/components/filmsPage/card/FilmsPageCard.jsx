@@ -28,7 +28,7 @@ export class FilmsPageCard extends React.Component {
             <div className="films-page-card" onClick={this.handleClick}>
                 <img className="avatar" src={film.avatar_url} alt="avatar"/>
                 <span className="name">
-                    {film.name}
+                    {film.Name}
                 </span>
             </div>
             {this.state.showModal && 
