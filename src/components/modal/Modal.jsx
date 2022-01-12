@@ -7,14 +7,11 @@ export class Modal extends React.Component {
     handleClose = (e) => {
         this.props.onClose(e);
     }
-    onBackClick = (e) => {
-        this.props.onClose?.(e); 
-    }
 
     render() {
         return (
             <div className="modal">
-                <div className="background"onClick={this.onBackClick}></div>
+                <div className="background"onClick={this.handleClose}></div>
                 <div className="window"> 
                     <div className="header">
                         <h2 className="title-film-modal"> 

@@ -1,54 +1,43 @@
-import React from "react";
-import { getFilms } from "../../api/filmsApi";
+import React, {useEffect, useState} from "react";
+import { getFilm } from "../../api/filmsApi";
 import { Modal } from "../../modal/Modal";
 import "./FilmsPageModal.scss";
 
-export class FilmsPageModal extends React.Component {
+export function FilmsPageModal ({ film, onClose }) {
+    const [data, setData] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
+    const [isError, setIsError] = useState(false);
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            data: {},
-            isLoading: true,
-            isError: false,
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const response = await getFilm(film.id);
+                setData(response.data);
+                setIsLoading(false);
+            } catch {
+                setIsLoading(false);
+                setIsError(true);
+            }
         }
-    }
-    async componentDidMount() {
-        try {
-            const response = await getFilms(this.props.film.Name);
-            this.setState({ data: response.data, isLoading: false });
-        } catch {
-            this.satState({ isError: true, isLoading: false})
-        }
-    }
+        fetchData();
+    }, [isError, film])
 
-
-    render() {
-        const film = this.props.film;
-
-        return (
-            <Modal title = {`${film.Name} (${film.year})`}
-                    onClose={this.props.onClose}>
-
+    return (
+        <Modal title = {`${film.Name} (${film.year})`}
+                    onClose={onClose}>
                 <div className="films-page-modal"> 
                     <img className="avatar" src={film.avatar_url} alt="avatar"/>
-                    {this.state.isLoading && <span>Loading...</span>}
-                    {this.state.isError && <span>Error...</span>}
-                    {!this.state.isLoading &&  !this.state.isError &&
+                    {isLoading && <span>Loading...</span>}
+                    {isError && <span>Error...</span>}
+                    {!isLoading &&  !isError &&
                       <div className="summery">   
-                      <p>Год: {film.year}</p>
-                      <p>Страна: {film.country}</p>
-                      <p>Жанр: {film.genre}</p>
-                      <p>Описание: {film.decsription}</p>
+                      <p>Год: {data.year}</p>
+                      <p>Страна: {data.country}</p>
+                      <p>Жанр: {data.genre}</p>
+                      <p>Описание: {data.decsription}</p>
                   </div>
                     }
-
-                  
                 </div>
-                
-
-            </Modal>
-        )
-    }
+        </Modal>
+    )
 }
