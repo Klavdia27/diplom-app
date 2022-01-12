@@ -20,7 +20,7 @@ export function FilmsPageModal ({ film, onClose }) {
             }
         }
         fetchData();
-    }, [isError, film])
+    }, [])
 
     return (
         <Modal title = {`${film.Name} (${film.year})`}

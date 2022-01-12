@@ -1,5 +1,4 @@
-
-import React, { useRef, useState } from "react";
+import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -20,11 +19,19 @@ import SwiperCore, {
 // install Swiper modules
 SwiperCore.use([Zoom,Navigation,Pagination]);
 
-
 export default function MultipleSlides() {
+
+    const onSlideChange = (e) => {
+        e.slides.forEach((elem,index) => {
+        if (elem.classList.contains("swiper-slide-active")) {
+            elem.querySelector("iframe").src = elem.querySelector("iframe").src + '?enablejsapi=1';
+        }        
+        })
+    }
+
   return (
     <>  
-    <Swiper 
+    <Swiper onSlideChange={onSlideChange}
         style={{
             '--swiper-navigation-color': '#fff',
             '--swiper-pagination-color': '#fff'
@@ -34,29 +41,31 @@ export default function MultipleSlides() {
         pagination={{
             "clickable": true
         }} 
-        className="mySwiper">
-        <SwiperSlide>
+        className="mySwiper"
+      
+        >
+        <SwiperSlide >
             <div className="swiper-zoom-container">
-                <iframe width="832" height="468" src="https://www.youtube.com/embed/bnqzQ-kDwlo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="832" height="468" src="https://www.youtube.com/embed/bnqzQ-kDwlo" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
         </SwiperSlide>
         <SwiperSlide>
             <div className="swiper-zoom-container">
-                <iframe width="832" height="468" src="https://www.youtube.com/embed/hlANal2_tsc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="832" height="468" src="https://www.youtube.com/embed/hlANal2_tsc" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
         </SwiperSlide>
         <SwiperSlide>
             <div className="swiper-zoom-container">
-                <iframe width="832" height="468" src="https://www.youtube.com/embed/tvVRlWQ95C4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="832" height="468" src="https://www.youtube.com/embed/tvVRlWQ95C4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
         </SwiperSlide><SwiperSlide>
             <div className="swiper-zoom-container">
-                <iframe width="832" height="468" src="https://www.youtube.com/embed/UIukHag0uGY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="832" height="468" src="https://www.youtube.com/embed/UIukHag0uGY" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
         </SwiperSlide>
         <SwiperSlide>
             <div className="swiper-zoom-container">
-                <iframe width="832" height="468" src="https://www.youtube.com/embed/7fx2L3KOaik" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="832" height="468" src="https://www.youtube.com/embed/7fx2L3KOaik" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
         </SwiperSlide>
         
@@ -64,5 +73,3 @@ export default function MultipleSlides() {
     </>
   )
 }
-
-

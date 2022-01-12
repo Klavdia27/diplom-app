@@ -1,4 +1,4 @@
-import Header from "./header/Header.jsx";
+import { Header } from "./header/Header.jsx";
 import Nav from "./nav/Nav.jsx";
 import { BuyTickets } from "./buyTickets/BuyTickets.jsx";
 import './App.scss';
@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="app">
       <div>
-        <Header />
+        <Header/>
       </div>
 
       <div className="nav">

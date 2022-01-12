@@ -23,7 +23,7 @@ export function FilmsPage () {
     }, []);
 
     return (
-        <div className="users-page">
+        <div className="films-page">
             {isLoading && " Loading..." }
             {isError && " Error..." }
             {!isLoading && !isError && 
