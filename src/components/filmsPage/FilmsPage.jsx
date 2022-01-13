@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getFilms } from "../api/filmsApi";
+import { getFilms } from "../../api/filmsApi";
 import { FilmsPageCard } from "./card/FilmsPageCard";
 import "./FilmsPage.scss";
 

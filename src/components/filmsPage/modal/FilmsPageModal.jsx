@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { getFilm } from "../../api/filmsApi";
+import { getFilm } from "../../../api/filmsApi";
 import { Modal } from "../../modal/Modal";
 import "./FilmsPageModal.scss";
 
@@ -31,11 +31,11 @@ export function FilmsPageModal ({ film, onClose }) {
                     {isError && <span>Error...</span>}
                     {!isLoading &&  !isError &&
                       <div className="summery">   
-                      <p>Год: {data.year}</p>
-                      <p>Страна: {data.country}</p>
-                      <p>Жанр: {data.genre}</p>
-                      <p>Описание: {data.decsription}</p>
-                  </div>
+                        <p>Год: {data.year}</p>
+                        <p>Страна: {data.country}</p>
+                        <p>Жанр: {data.genre}</p>
+                        <p>Описание: {data.decsription}</p>
+                      </div>
                     }
                 </div>
         </Modal>
