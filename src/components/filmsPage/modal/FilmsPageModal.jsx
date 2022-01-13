@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { getFilm } from "../../../api/filmsApi";
+import { getFilms } from "../../../api/filmsApi";
 import { Modal } from "../../modal/Modal";
 import "./FilmsPageModal.scss";
 
@@ -11,7 +11,7 @@ export function FilmsPageModal ({ film, onClose }) {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await getFilm(film.id);
+                const response = await getFilms(film.id);
                 setData(response.data);
                 setIsLoading(false);
             } catch {
@@ -31,10 +31,10 @@ export function FilmsPageModal ({ film, onClose }) {
                     {isError && <span>Error...</span>}
                     {!isLoading &&  !isError &&
                       <div className="summery">   
-                        <p>Год: {data.year}</p>
-                        <p>Страна: {data.country}</p>
-                        <p>Жанр: {data.genre}</p>
-                        <p>Описание: {data.decsription}</p>
+                        <p>Год: {film.year}</p>
+                        <p>Страна: {film.country}</p>
+                        <p>Жанр: {film.genre}</p>
+                        <p>Описание: {film.decsription}</p>
                       </div>
                     }
                 </div>
