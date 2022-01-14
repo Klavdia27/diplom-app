@@ -1,31 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getTime } from "../../helpers/timeHelper";
+import { withTranslator } from "../../hoc/withTranslator";
+import { ReactComponent  as TimeIcon } from "../../icons/time.svg";
+import "./Time.scss";
 
-export class Time extends React.Component {
-    constructor(props) {
-        super(props);
+const SHOW_TIME = "showTime";
 
-        this.state = {
-            now: this.getTime(),
-        }
+function _Time({ translate}) {
+    const [now, setNow] = useState(getTime());
+    const [show, setShow] = useState(JSON.parse(localStorage.getItem(SHOW_TIME)));
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {setNow(getTime())}, 1000);
+        return () => clearInterval(intervalId)
+    }, []);
+
+    useEffect(() => {
+        document.title = `Time - ${now}`
+    }, [now]);
+
+    const handleToggleTime = () => {
+        setShow(!show);
+        localStorage.setItem(SHOW_TIME, !show);
     }
-
-    componentDidMount() {
-        this.intervalId = setInterval(() => {
-            this.setState({now : this.getTime()});
-        }, 1000);
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.intervalId)
-    }
-    
-    getTime = () => new Date().toTimeString().substring(0, 8);
-
-    render() {
-        return (
-            <>
-                <span> {this.state.now} </span>
-            </>
-        )
-    }
+    return (
+        <div className="time-container">
+            {show && <span> {now} </span>}
+            
+            <TimeIcon onClick={handleToggleTime} title={translate("time.toggle.tooltip")}/>
+        </div>
+       
+    )
 }
+
+export const Time = withTranslator(_Time);

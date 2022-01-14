@@ -4,18 +4,29 @@
     display: flex;  
     justify-content: space-between;
     line-height: 40px;
-    
     border-bottom: 5px solid #410707;
     .nav {
-        width: 20%;
+        width: 50%;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 0 20px; 
-        
+        list-style-type: none; 
+        margin: 0;  
     }
-    .nav__time {
+    .link {
+        cursor: pointer;
+        color: white;
+
+        &:hover {
+            color: #aaaaaa;
+        }
+    }
+    .time {
         padding: 0 20px;
     }
+    button {
+        cursor: pointer;
+    }  
 }
 
