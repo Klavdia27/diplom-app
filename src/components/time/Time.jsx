@@ -16,7 +16,7 @@ function _Time({ translate}) {
     }, []);
 
     useEffect(() => {
-        document.title = `Time - ${now}`
+        document.title = `Cinema - ${now}`
     }, [now]);
 
     const handleToggleTime = () => {

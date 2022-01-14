@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getFilms } from "../../api/filmsApi";
 import { FilmsPageCard } from "./card/FilmsPageCard";
 import "./FilmsPage.scss";
+import MultipleSlides from "../multipleSlides/MultipleSlides.jsx";
 
 export function FilmsPage () {
     const [films, setFilms] = useState([]);
@@ -23,6 +24,10 @@ export function FilmsPage () {
     }, []);
 
     return (
+        <>
+        <div>
+            <MultipleSlides/>
+        </div> 
         <div className="films-page">
             {isLoading && " Loading..." }
             {isError && " Error..." }
@@ -32,5 +37,7 @@ export function FilmsPage () {
                 )
             }
         </div>
+        </>
+
     )
 }
