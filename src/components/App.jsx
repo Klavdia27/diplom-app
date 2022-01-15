@@ -16,7 +16,9 @@ import "swiper/css/bundle";
 
 function App() {
   const isFilmPage = true;
+  
   return (
+
     <div className="app">
       <div>
         <Header/>

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import "./Nav.scss";
+import { Link } from "react-router-dom";
+
 import { Time } from "../time/Time";
 import { withTranslator } from "../../hoc/withTranslator";
-import { Link } from "react-router-dom";
+
+import "./Nav.scss";
 
 const links = [
     {
@@ -39,6 +41,7 @@ function Nav({ translate, setLanguage}) {
                <button onClick={() => setLanguage("ru")}>RU</button>
                <button onClick={() => setLanguage("en")}>EN</button>
            </div>
+
             <div className="time">
                 {showTime && <Time/>}
             </div>

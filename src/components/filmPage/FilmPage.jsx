@@ -2,14 +2,14 @@ import "./FilmPage.scss";
 import React  from "react";
 import { useParams } from "react-router-dom"; 
 import { useEffect, useState } from "react/cjs/react.development";
-import { getFilm } from "../../api/filmsApi";
+import { getFilms } from "../../api/filmsApi";
 
 const FilmPage = () => {
     const [film, setFilm] = useState({});
     const params = useParams();
 
     useEffect ( () => {
-        getFilm(params.id)
+        getFilms(params.id)
         .then((response) => setFilm(response.data));
     }, [])
 
