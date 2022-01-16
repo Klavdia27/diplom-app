@@ -9,7 +9,7 @@ export function FilmsPageCard ({ film }) {
         <>
             <div className="films-page-card" onClick={() => setShowModal(true)}>
                 <img className="avatar" src={film.avatar_url} alt="avatar"/>
-                <span className="name">
+                <span className="name text">
                     {film.Name}
                 </span>
             </div>

@@ -8,7 +8,7 @@ const locales = {
 }
 const subscribes = [];
 
-let globalLanguage = "en";
+let globalLanguage = "ru";
 
 
 const setGlobalLanguage = (lang) => {

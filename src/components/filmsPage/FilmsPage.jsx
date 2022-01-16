@@ -29,8 +29,10 @@ export function FilmsPage () {
             <MultipleSlides/>
         </div> 
         <div className="films-page">
-            {isLoading && " Loading..." }
-            {isError && " Error..." }
+            <span className="text">
+                {isLoading && " Loading..." }
+                {isError && " Error..." }
+            </span>
             {!isLoading && !isError && 
                 films.map(film => 
                     <FilmsPageCard key={film.id} film={film}/>

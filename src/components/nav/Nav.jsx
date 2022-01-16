@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { Time } from "../time/Time";
-import { withTranslator } from "../../hoc/withTranslator";
+import { withTranslator } from "../../hoc/withTranslator.jsx";
+import { withTheme } from "../../hoc/withTheme.jsx";
 
+import { ReactComponent as ThemeIcon } from "../../icons/theme.svg";
 import "./Nav.scss";
 
 const links = [
@@ -21,7 +23,7 @@ const links = [
     },
 ]
 
-function Nav({ translate, setLanguage}) {
+function Nav({ translate, setLanguage, toggleTheme}) {
 
     const [showTime, setShowTime] = useState(true);
     
@@ -41,7 +43,10 @@ function Nav({ translate, setLanguage}) {
                <button onClick={() => setLanguage("ru")}>RU</button>
                <button onClick={() => setLanguage("en")}>EN</button>
            </div>
-
+            <ThemeIcon 
+                className="theme-icon"
+                onClick={() => toggleTheme()}
+            />
             <div className="time">
                 {showTime && <Time/>}
             </div>
@@ -49,4 +54,4 @@ function Nav({ translate, setLanguage}) {
     )
 }
 
-export default withTranslator(Nav);
+export default withTheme(withTranslator(Nav));

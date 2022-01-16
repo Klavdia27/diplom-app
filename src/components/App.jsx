@@ -5,6 +5,8 @@ import { BuyTickets } from "./buyTickets/BuyTickets.jsx";
 import { FilmsPage } from "./filmsPage/FilmsPage";
 import  Cinemas  from "./cinemas/Cinemas.jsx";
 import  FilmPage  from "./filmPage/FilmPage.jsx";
+import { withTheme } from "../hoc/withTheme.jsx";
+import { useEffect } from "react/cjs/react.development";
 
 import './App.scss';
 
@@ -14,9 +16,11 @@ import "swiper/css/bundle";
 
 
 
-function App() {
-  const isFilmPage = true;
-  
+
+function App({setThemeFromStore}) {
+
+useEffect(() => setThemeFromStore(), []);
+
   return (
 
     <div className="app">
@@ -27,10 +31,6 @@ function App() {
       <div className="nav">
         <Nav/>
       </div>
-  
-      {/* <div>
-        <MultipleSlides/>
-      </div> */}
 
       <main className="app__main"> 
           <Routes>
@@ -39,28 +39,9 @@ function App() {
             <Route path='/cinemas'   element={<Cinemas/>} />
             <Route path='/films/:id' element={<FilmPage/>} />
           </Routes>
-        
-          {/* {isFilmPage
-            ?
-            <div>
-              
-              <FilmsPage/>
-            </div>
-            
-            :
-            <div>Empty Page</div>
-          } */}
-
         </main>
-        
-      {/* <div className="nav">
-        <BuyTickets/>
-      </div> */}
-
-      
-      
     </div>
   );
 }
 
-export default App;
+export default withTheme(App);

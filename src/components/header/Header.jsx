@@ -51,7 +51,7 @@ function _Header({ translate }) {
                     id="combo-box-demo"
                     options={spisokFilms}
                     sx={{ width: 500 }}
-                    renderInput={(params) => <TextField {...params} label="Movie" />}
+                    renderInput={(params) => <TextField {...params} label={translate("header.search")} />}
                 />
                     {/* <input type="text" placeholder={translate("header.search")} className="header__input"></input>
                     <img src={searchFilm} alt="icon: search" className="header__search-icon"/> */}

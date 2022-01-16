@@ -1,7 +1,11 @@
+@import "./styles/colors.scss";
+@import "./styles/global.scss";
+
 .app {
+  background-color: var(--background);
+
   display: flex;
   flex-direction: column;
-  background-color: #2E2A2A;
   
   color: white;
   
