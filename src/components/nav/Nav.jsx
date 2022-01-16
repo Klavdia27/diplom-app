@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
-import "./Nav.scss";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
 import { Time } from "../time/Time";
 import { withTranslator } from "../../hoc/withTranslator";
+
+import "./Nav.scss";
 
 const links = [
     {
@@ -9,8 +12,12 @@ const links = [
         url: "/",
     },
     {
+        textId: "nav.links.cinemas",
+        url: "/cinemas",
+    },
+    {
         textId: "nav.links.buyticket",
-        url: "/",
+        url: "/buyticket",
     },
 ]
 
@@ -24,7 +31,7 @@ function Nav({ translate, setLanguage}) {
                 <ul className="nav">
                     {links.map((link, index) => (
                         <li key={index}>
-                            <a href={link.url} className="link">{translate(link.textId)} </a>
+                            <Link to={link.url} className="link">{translate(link.textId)} </Link>
                         </li>
                     ))}
                 </ul>
@@ -34,6 +41,7 @@ function Nav({ translate, setLanguage}) {
                <button onClick={() => setLanguage("ru")}>RU</button>
                <button onClick={() => setLanguage("en")}>EN</button>
            </div>
+
             <div className="time">
                 {showTime && <Time/>}
             </div>

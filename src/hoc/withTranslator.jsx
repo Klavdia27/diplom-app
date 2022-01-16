@@ -14,7 +14,7 @@ let globalLanguage = "en";
 const setGlobalLanguage = (lang) => {
     if (globalLanguage === lang) return;
     globalLanguage = lang;
-    subscribes.forEach(subscribe => subscribe(globalLanguage))
+    subscribes.forEach(subscribe => subscribe(globalLanguage));
 };
 
 const translate = (textId) => locales[globalLanguage][textId] || textId;
