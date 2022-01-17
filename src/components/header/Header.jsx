@@ -10,20 +10,16 @@ import searchFilm from "./img/search.png";
 
 import "./Header.scss";
 
-
-
 function _Header({ translate }) {
     const [films, setFilms] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
 
-   
-
     useEffect(() => {
         async function fetchData () {
             try {
                 const response = await getFilms();
-                //console.log(response);
+                console.log(response);
                 setFilms(response.data);
             } catch {
                 setIsError(true);
