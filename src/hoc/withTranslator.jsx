@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react/cjs/react.development";
-import { translatesEn } from "../components/resources/transtales/translates.en";
-import { translatesRu } from "../components/resources/transtales/translates.ru";
+import { translatesEn } from "../resources/transtales/translates.en";
+import { translatesRu } from "../resources/transtales/translates.ru";
 
 const locales = {
     "en": translatesEn,
