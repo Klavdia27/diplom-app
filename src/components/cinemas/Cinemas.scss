@@ -1,0 +1,28 @@
+.group-button__cinemas {
+
+    width: 1160px;
+    margin: 30px auto;
+    
+    .btn.active {
+        background-color: #410707;
+        color: white;        
+    }
+    .btn {
+        background-color: rgb(239, 239, 239);
+        color: black;
+    }
+    .btn:hover {
+        background-color: #410707;
+        color: white;
+    }
+}
+.group-decsr__cinemas {
+    width: 1160px;
+    margin: 30px auto;
+    color: var(--text);
+
+    .cinema-map {
+        border: none;
+        margin-left: 50px;
+    }
+}

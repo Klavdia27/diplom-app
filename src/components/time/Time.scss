@@ -2,12 +2,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: var(--text);
 
     svg {  
         margin-left: 8px;
         cursor: pointer;
         path {
-            fill: white;
+            fill: var(--text);
         }
     }
 }

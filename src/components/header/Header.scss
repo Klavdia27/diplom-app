@@ -1,6 +1,7 @@
 .header {
     height: 70px;
     width: 100%;
+
    .inputmovie {
        background-color: white;
        border-radius: 5px;
@@ -11,7 +12,8 @@
         margin: auto;
         display: flex;  
         border-bottom: 5px solid #410707;
-        background-color: #423E3E;
+        background-color: var(--background-header);
+        color: var(--text);
     }
     .header__title {
         padding-left: 10px;
