@@ -34,10 +34,7 @@ function _Header({ translate }) {
         fetchData();
     }, []);
     
-    const spisokFilms = [];
-    films.map(film => {
-        spisokFilms.push({label: film.Name});
-    });
+    const spisokFilms = films.map(film => ({label: film.Name}));
 
     return (
         <header className="header">
