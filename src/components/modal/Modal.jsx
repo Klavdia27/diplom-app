@@ -3,7 +3,7 @@ import React from "react";
 import "./Modal.scss";
 
 export class Modal extends React.Component {
-
+    
     handleClose = (e) => {
         this.props.onClose(e);
     }
