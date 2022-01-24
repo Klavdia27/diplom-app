@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import { Time } from "../time/Time";
 import { withTranslator } from "../../hoc/withTranslator.jsx";
@@ -33,7 +33,7 @@ function Nav({ translate, setLanguage, toggleTheme}) {
                 <ul className="nav">
                     {links.map((link, index) => (
                         <li key={index}>
-                            <Link to={link.url} className="link">{translate(link.textId)} </Link>
+                            <NavLink to={link.url} className="link" activeClassName="active">{translate(link.textId)} </NavLink>
                         </li>
                     ))}
                 </ul>
