@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Loader from "../loader/Loader.jsx";
 import { Card, CardContent, CardHeader, TextField, Button } from "@mui/material";
 import  authApi  from "../../api/authApi.js";
 import { withTranslator } from "../../hoc/withTranslator.jsx";
@@ -6,18 +7,29 @@ import { withTheme } from "../../hoc/withTheme.jsx";
 
 import "./LoginPage.scss"
 
+
 function LoginPage({ translate }) {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
+
+    const handleInput = (setFunction) => (e) => {
+        setError(false);
+        setFunction(e.currentTarget.value)
+    }
 
     const handleSubmit = () => {
+        setLoading(true);
         authApi.login(login, password)
             .then((responce) => {
                 console.log(responce.data)
             })
             .catch((error) => {
-                console.log(error);
+                setError(true);
+            })
+            .finally(() => {
+                setLoading(false);
             })
     }
 
@@ -26,9 +38,12 @@ function LoginPage({ translate }) {
             <Card>
                 <CardHeader title={translate("loginpage.title")}/>
                 <CardContent>
+
+                    {error && <span>{error}</span>}
                     <TextField 
                         value={login}
-                        onChange={e => setLogin(e.currentTarget.value)}
+                        onChange={handleInput(setLogin)}
+                        error={!!error}
                         className="text-field"
                         fullWidth 
                         label={translate("loginpage.login")}
@@ -37,7 +52,8 @@ function LoginPage({ translate }) {
                     />
                     <TextField 
                         value={password}
-                        onChange={e => setPassword(e.currentTarget.value)}
+                        onChange={handleInput(setPassword)}
+                        error={!!error}
                         className="text-field"
                         fullWidth
                         type="password"
@@ -45,7 +61,11 @@ function LoginPage({ translate }) {
                         label={translate("loginpage.password")} 
                         variant="outlined" 
                     />
-                    <Button onClick={handleSubmit}> 
+                    <Button 
+                        onClick={handleSubmit}
+                        endIcon={ loading ? <Loader/> : undefined}
+                        disabled={loading || !!error}
+                    > 
                     {translate("loginpage.submit")} 
                     </Button>
                 </CardContent>
