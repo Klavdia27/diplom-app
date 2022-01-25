@@ -1,15 +1,13 @@
-import { setupWorker, rest } from "msw";
-import films from "./dataBrowser/films.js";
-import cinemaItems from "./dataBrowser/cinemaItems.js";
+import { setupWorker } from "msw";
+
+import { authEndpoints } from "./endpoints/auth.js";
+import { filmsEndpoints } from "./endpoints/films.js";
+import { cinemaEndpoints } from "./endpoints/cinema.js";
 
 const worker = setupWorker(
-    rest.get("/api/films", (req, res, ctx) => {
-        return res(ctx.json(films))
-    }),
-    rest.get("/api/cinemas", (req, res, ctx) => {
-      return res(ctx.json(cinemaItems))
-  }),
-
+    ...authEndpoints,
+    ...filmsEndpoints,
+    ...cinemaEndpoints,  
 );
 
 

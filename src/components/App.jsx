@@ -7,6 +7,7 @@ import { FilmsPage } from "./filmsPage/FilmsPage";
 import { Cinemas } from "./cinemas/Cinemas.jsx";
 import  FilmPage  from "./filmPage/FilmPage.jsx";
 import { withTheme } from "../hoc/withTheme.jsx";
+import LoginPage from "./loginPage/LoginPage.jsx";
 
 
 import './App.scss';
@@ -31,6 +32,7 @@ useEffect(() => setThemeFromStore(), []);
 
       <main className="app__main"> 
           <Routes>
+            <Route path='/login' element={<LoginPage/>} />
             <Route path='/' element={<FilmsPage/>} />
             <Route path='/buyticket' element={<BuyTickets/>} />
             <Route path='/cinemas'   element={<Cinemas/>} />
