@@ -22,11 +22,13 @@
     }
     .link {
         cursor: pointer;
-        
         color: var(--text);
 
         &:hover {
             color: #aaaaaa;
+        }
+        &.active {
+            font-weight: bold;
         }
     }
     .theme-icon {

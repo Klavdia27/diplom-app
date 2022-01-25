@@ -30,7 +30,7 @@ function _Header({ translate }) {
         fetchData();
     }, []);
     
-    const spisokFilms = films.map(film => ({label: film.Name}));
+    const filmsOptions = films.map(({ Name }) => ({ label: Name }));
 
     return (
         <header className="header">
@@ -42,7 +42,7 @@ function _Header({ translate }) {
                     className="inputmovie"
                     disablePortal
                     id="combo-box-demo"
-                    options={spisokFilms}
+                    options={filmsOptions}
                     sx={{ width: 500 }}
                     renderInput={(params) => <TextField {...params} label={translate("header.search")} />}
                 />
