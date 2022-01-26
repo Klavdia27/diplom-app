@@ -11,17 +11,14 @@ import cinemaTicket from "./img/cinema-ticket.png";
 
 import "./Header.scss";
 
-function Header({ translate }) {
+function Header({ translate, me, ...props  }) {
     const [films, setFilms] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
-
     useEffect(() => {
         async function fetchData () {
             try {
-                
                 const response = await getFilms();
-                console.log(response);
                 setFilms(response.data);
             } catch {
                 setIsError(true);
@@ -33,7 +30,6 @@ function Header({ translate }) {
     }, []);
     
     const filmsOptions = films.map(({ Name }) => ({ label: Name }));
-
     return (
         <header className="header">
             <div className="container">
@@ -52,7 +48,10 @@ function Header({ translate }) {
                     <img src={searchFilm} alt="icon: search" className="header__search-icon"/> */}
                 </div>
                 <div className="header__profil">
-                    <span>{translate("header.profil")} </span>
+                    <span>{translate("header.profil")}  </span>
+                    {
+                        me && <span>{me.login}  </span>
+                    }   
                 </div>
             </div>
         </header>

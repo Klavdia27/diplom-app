@@ -5,7 +5,7 @@ export const translatesEn = {
     
     "time.toggle.tooltip": "On/Off",
 
-    "header.profil": "Profil",
+    "header.profil": "Profil:  ",
     "header.search": "search film",
 
     "loginpage.title": "Authorization",

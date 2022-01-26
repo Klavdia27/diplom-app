@@ -5,7 +5,7 @@ export const translatesRu = {
     
     "time.toggle.tooltip": "Вкл/Выкл",
 
-    "header.profil": "Профиль",
+    "header.profil": "Профиль:  ",
     "header.search": "поиск фильма",
 
     "loginpage.title": "Авторизация",

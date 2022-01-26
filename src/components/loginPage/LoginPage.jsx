@@ -4,11 +4,12 @@ import { Card, CardContent, CardHeader, TextField, Button } from "@mui/material"
 import  authApi  from "../../api/authApi.js";
 import { withTranslator } from "../../hoc/withTranslator.jsx";
 import { withTheme } from "../../hoc/withTheme.jsx";
+import { withMe } from "../../hoc/withMe.jsx";
 
 import "./LoginPage.scss"
 
 
-function LoginPage({ translate }) {
+function LoginPage({ translate, setMe }) {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
@@ -22,8 +23,8 @@ function LoginPage({ translate }) {
     const handleSubmit = () => {
         setLoading(true);
         authApi.login(login, password)
-            .then((responce) => {
-                console.log(responce.data)
+            .then((response) => {
+                setMe(response.data.user);
             })
             .catch((error) => {
                 setError(true);
@@ -74,4 +75,4 @@ function LoginPage({ translate }) {
     )
 }
 
-export default withTheme(withTranslator(LoginPage));;
+export default withMe(withTheme(withTranslator(LoginPage)));

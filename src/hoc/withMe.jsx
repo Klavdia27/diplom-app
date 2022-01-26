@@ -1,8 +1,13 @@
 import AuthContext from "../components/contexts/AuthContext";
 
 export const withMe = (Component) => (props) => (
-    <AuthContext.Cunsumer>
-        {value => <Component me={value.me}/>}
-    </AuthContext.Cunsumer>
+    <AuthContext.Consumer>
+        {value => 
+        <Component 
+            me={value.me} 
+            setMe={value.setMe}
+            {...props}
+        />}
+    </AuthContext.Consumer>
 )
 

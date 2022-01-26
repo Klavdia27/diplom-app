@@ -5,7 +5,7 @@ import LoginPage from "./loginPage/LoginPage.jsx";
 import Header from "./header/Header.jsx";
 import Nav from "./nav/Nav.jsx";
 import { FilmsPage } from "./filmsPage/FilmsPage";
-import { BuyTickets } from "./buyTickets/BuyTickets.jsx";
+import BuyTickets from "./buyTickets/BuyTickets.jsx";
 import { Cinemas } from "./cinemas/Cinemas.jsx";
 import  FilmPage  from "./filmPage/FilmPage.jsx";
 
@@ -18,13 +18,7 @@ import "swiper/css/bundle";
 
 
 function App({setThemeFromStore}) {
-  //const [me, setMe] = useState({});
-
-  const me = {
-    login: "temp user",
-  }
-
-  const setMe = () => {};
+  const [me, setMe] = useState({});
 
   useEffect(() => setThemeFromStore(), []);
 
