@@ -2,15 +2,16 @@ import React, {useEffect, useState} from "react";
 import { TextField, Autocomplete } from '@mui/material';
 
 import { withTranslator } from "../../hoc/withTranslator";
+import { withMe } from "../../hoc/withMe";
 import { FilmsPageModal } from "../../components/filmsPage/modal/FilmsPageModal";
 import { getFilms } from "../../api/filmsApi";
 
 import cinemaTicket from "./img/cinema-ticket.png";
-import searchFilm from "./img/search.png";
+
 
 import "./Header.scss";
 
-function _Header({ translate }) {
+function Header({ translate }) {
     const [films, setFilms] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
@@ -18,6 +19,7 @@ function _Header({ translate }) {
     useEffect(() => {
         async function fetchData () {
             try {
+                
                 const response = await getFilms();
                 console.log(response);
                 setFilms(response.data);
@@ -56,4 +58,5 @@ function _Header({ translate }) {
         </header>
     )    
 }
-export const Header = withTranslator(_Header);
+
+export default withMe(withTranslator(Header));
