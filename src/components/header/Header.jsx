@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
-import { TextField, Autocomplete } from '@mui/material';
+import { Link } from "react-router-dom";
+import { TextField, Autocomplete, Button } from '@mui/material';
 
 import { withTranslator } from "../../hoc/withTranslator";
 import { withMe } from "../../hoc/withMe";
@@ -11,7 +12,8 @@ import cinemaTicket from "./img/cinema-ticket.png";
 
 import "./Header.scss";
 
-function Header({ translate, me, ...props  }) {
+
+function Header({ translate, me, setMe, ...props  }) {
     const [films, setFilms] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
@@ -48,11 +50,24 @@ function Header({ translate, me, ...props  }) {
                     <img src={searchFilm} alt="icon: search" className="header__search-icon"/> */}
                 </div>
                 <div className="header__profil">
-                    <span>{translate("header.profil")}  </span>
-                    {
-                        me && <span>{me.login}  </span>
-                    }   
+                    <div className="header__profil-login">
+                        <span >{translate("header.profil")}  </span>
+                        {
+                            me && <span>{me.login}  </span>
+                        }  
+                    </div>
+                    <div>
+                        { me
+                        ? 
+                            <Button className="header__login-btn" onClick={() => setMe(null)}> Выход</Button>
+                        :
+                            <Link className="header__login-btn" to="/login"> ВОЙТИ </Link> 
+                        }
+                    </div>
+                   
+                   
                 </div>
+
             </div>
         </header>
     )    

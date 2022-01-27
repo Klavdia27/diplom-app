@@ -43,19 +43,31 @@
     }
     .header__profil {
         margin-left: auto;
-        padding: 20px;
-        justify-content: column;
+        padding: 8px 8px 0px 8px;
+        flex-direction: column;
+        width: 165px;
         display: flex;  
         text-align: center;
         border-left: 1px solid #5B5454;
 
-        }
+    }
+    .header__profil-login {
+        margin-bottom: 8px;
+    }
     .header__search-icon {
         width: 20px;
         height: 20px;
         padding-left: 10px;
     }
-
+    .header__login-btn {
+        font-size: 14px;
+        color: white;
+        padding:4px;
+        border: 1px solid #eeeeee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        border-radius: 5px;
+        text-decoration: none;
+    }
 }
 
 
