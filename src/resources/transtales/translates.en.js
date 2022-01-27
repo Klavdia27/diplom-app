@@ -5,6 +5,13 @@ export const translatesEn = {
     
     "time.toggle.tooltip": "On/Off",
 
-    "header.profil": "Profil",
+    "header.profil": "Profil:  ",
     "header.search": "search film",
+
+    "loginpage.title": "Authorization",
+    "loginpage.login": "Login",
+    "loginpage.password": "Password",
+    "loginpage.submit": "submit",
+    "loginpage.placeholder.login": "Input login",
+    "loginpage.placeholder.password": "Input password",
 }

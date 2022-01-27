@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+
+import Loader from "../loader/Loader.jsx";
 import { getFilms } from "../../api/filmsApi";
 import { FilmsPageCard } from "./card/FilmsPageCard";
 import "./FilmsPage.scss";
@@ -30,7 +32,7 @@ export function FilmsPage () {
         </div> 
         <div className="films-page">
             <span className="text">
-                {isLoading && " Loading..." }
+                {isLoading && <Loader/> }
                 {isError && " Error..." }
             </span>
             {!isLoading && !isError && 

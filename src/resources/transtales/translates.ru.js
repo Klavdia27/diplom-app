@@ -5,6 +5,13 @@ export const translatesRu = {
     
     "time.toggle.tooltip": "Вкл/Выкл",
 
-    "header.profil": "Профиль",
+    "header.profil": "Профиль:  ",
     "header.search": "поиск фильма",
+
+    "loginpage.title": "Авторизация",
+    "loginpage.login": "Логин",
+    "loginpage.password": "Пароль",
+    "loginpage.submit": "Войти",
+    "loginpage.placeholder.login": "Введите логин",
+    "loginpage.placeholder.password": "Введите пароль",
 }

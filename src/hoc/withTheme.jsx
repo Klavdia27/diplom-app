@@ -16,6 +16,10 @@ export const withTheme = (Component) => (props) => {
     }
 
     return (
-        <Component setThemeFromStore={setThemeFromStore} toggleTheme={toggleTheme} {...props}/>
+        <Component 
+            setThemeFromStore={setThemeFromStore} 
+            toggleTheme={toggleTheme} 
+            {...props}
+        />
     )
 }
