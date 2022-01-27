@@ -18,7 +18,7 @@ import "swiper/css/bundle";
 
 
 function App({setThemeFromStore}) {
-  const [me, setMe] = useState({});
+  const [me, setMe] = useState(null);
 
   useEffect(() => setThemeFromStore(), []);
 

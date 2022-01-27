@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Loader from "../loader/Loader.jsx";
 import { Card, CardContent, CardHeader, TextField, Button } from "@mui/material";
 import  authApi  from "../../api/authApi.js";
@@ -9,11 +11,19 @@ import { withMe } from "../../hoc/withMe.jsx";
 import "./LoginPage.scss"
 
 
-function LoginPage({ translate, setMe }) {
+function LoginPage({ translate, me, setMe }) {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+        if (me) {
+            navigate("/buyticket")
+        }
+    }, [me])
+
 
     const handleInput = (setFunction) => (e) => {
         setError(false);
@@ -33,6 +43,8 @@ function LoginPage({ translate, setMe }) {
                 setLoading(false);
             })
     }
+
+
 
     return (
         <div className="login-page">

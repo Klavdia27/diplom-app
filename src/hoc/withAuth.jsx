@@ -1,3 +1,4 @@
+import { Navigate } from "react-router-dom";
 import { withMe } from "./withMe";
 
 export const withAuth = (Component) => withMe(({ me, setMe, ...props}) => {
@@ -8,8 +9,10 @@ export const withAuth = (Component) => withMe(({ me, setMe, ...props}) => {
         )
     } else {
         return (
-            "NOT PERMISSION"
+            <Navigate replace to="/login"/>
         )
     }
     
 })
+
+      
