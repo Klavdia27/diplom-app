@@ -18,7 +18,12 @@ import "swiper/css/bundle";
 
 
 function App({setThemeFromStore}) {
-  const [me, setMe] = useState(null);
+  const [me, setMeToState] = useState(JSON.parse(localStorage.getItem("me")));
+
+  const setMe = (me) => {
+    localStorage.setItem("me", JSON.stringify(me));
+    setMeToState(me);
+  }
 
   useEffect(() => setThemeFromStore(), []);
 
