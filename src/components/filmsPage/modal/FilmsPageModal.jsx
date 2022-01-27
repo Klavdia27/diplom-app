@@ -33,7 +33,7 @@ export function FilmsPageModal ({ film, onClose }) {
                       <div className="summery">   
                         <p>Год: {film.year}</p>
                         <p>Страна: {film.country}</p>
-                        <p>Жанр: {film.genre}</p>
+                        <p>Жанр: {film.genre.join(", ")}</p>
                         <p>Описание: {film.decsription}</p>
                       </div>
                     }

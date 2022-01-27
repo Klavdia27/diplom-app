@@ -16,6 +16,6 @@ export function FilmsPageCard ({ film }) {
             {showModal && 
                 <FilmsPageModal film={film} onClose={() => setShowModal(false)}/>
             } 
-            </>
+        </>
     )
 }

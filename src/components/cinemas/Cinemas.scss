@@ -1,8 +1,7 @@
 .group-button__cinemas {
-
     width: 1160px;
     margin: 30px auto;
-    
+
     .btn.active {
         background-color: #410707;
         color: white;        
@@ -27,5 +26,21 @@
     .cinema-map {
         border: none;
         margin-left: 50px;
+    }
+    .cinema-item-active {
+        display: flex;
+        justify-content: center;
+    }
+    .cinema-item {
+        width: 100%;
+        margin-bottom: 36px;
+    }
+    .cinema-item-none {
+        font-size: 28px;
+        text-align: center;
+    }
+    .cinema-item-fotomap {
+        display: flex;
+        justify-content: space-between;
     }
 }
