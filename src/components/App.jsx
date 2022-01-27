@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import LoginPage from "./loginPage/LoginPage.jsx";
 import Header from "./header/Header.jsx";
 import Nav from "./nav/Nav.jsx";
-import { FilmsPage } from "./filmsPage/FilmsPage";
+import FilmsPage from "./filmsPage/FilmsPage";
 import BuyTickets from "./buyTickets/BuyTickets.jsx";
 import { Cinemas } from "./cinemas/Cinemas.jsx";
 import  FilmPage  from "./filmPage/FilmPage.jsx";
@@ -29,7 +29,7 @@ function App({setThemeFromStore}) {
 
   return (
     <AuthContext.Provider value={{me, setMe}}>
-      <div className="app">
+      <div className="app container">
         <div>
           <Header/>
         </div>
@@ -38,15 +38,15 @@ function App({setThemeFromStore}) {
           <Nav/>
         </div>
 
-        <main className="app__main"> 
-            <Routes>
-              <Route path='/login' element={<LoginPage/>} />
-              <Route path='/' element={<FilmsPage/>} />
-              <Route path='/buyticket' element={<BuyTickets/>} />
-              <Route path='/cinemas'   element={<Cinemas/>} />
-              <Route path='/films/:id' element={<FilmPage/>} />
-            </Routes>
-          </main>
+        <main className="app__main container"> 
+          <Routes>
+            <Route path='/login' element={<LoginPage/>} />
+            <Route path='/' element={<FilmsPage/>} />
+            <Route path='/buyticket' element={<BuyTickets/>} />
+            <Route path='/cinemas'   element={<Cinemas/>} />
+            <Route path='/films/:id' element={<FilmPage/>} />
+          </Routes>
+        </main>
       </div>  
     </AuthContext.Provider>
 
