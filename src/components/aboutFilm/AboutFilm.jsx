@@ -22,9 +22,6 @@ export function AboutFilm ({ film }) {
         fetchData();
     }, [])
 
-    const genre = film.genre;
-    console.log(genre);
-
     return (
         <>
             <div className="about-film-group" >
@@ -41,7 +38,10 @@ export function AboutFilm ({ film }) {
                             <p><span className="subtitle">Год:</span> {film.year}</p>
                             <p><span className="subtitle">Страна:</span> {film.country}</p>
                             <p><span className="subtitle">Жанр:</span> {film.genre.join(", ")}</p>
-                            <p><span className="subtitle">Описание:</span> {film.decsription}</p>   
+                            <p><span className="subtitle">Описание:</span> {film.decsription}</p>
+                            <p><span className="subtitle">Трейлер:</span> <a href={film.trailer} target="_blank" className="about-film-trailer">{film.trailer}</a></p>
+                          
+      
                         </div>
                         </>
                     }
