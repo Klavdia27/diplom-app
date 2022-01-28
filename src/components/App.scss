@@ -8,9 +8,14 @@
   flex-direction: column;
   
   color: white;
+ 
   
   .app__main {
     min-height: 100vh;
+  }
+  .container {
+    margin: auto;
+    width: 1160px;
   }
 
 

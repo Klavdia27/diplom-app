@@ -1,18 +1,13 @@
 import { rest } from "msw";
 import { encodeToken, getResponseUser } from "../helpers/authHelper.js";
+import { registerUsers } from "../registerUsers.js";
 
-const users = [
-    {
-        login: "Klavdia",
-        password: "1q2w3e",
-        id: 1,
-    }
-];
+
 
 export const authEndpoints = [
     rest.post("/api/login", (req, res, ctx) => {
         const { login, password } = req.body;
-        const user = users.find(((item) => item.login === login && item.password === password));
+        const user = registerUsers.find(((item) => item.login === login && item.password === password));
         
         if (!user) {
             return  res((res) => {
@@ -22,8 +17,11 @@ export const authEndpoints = [
             });
         } else {
                 const body = {
-                user: getResponseUser(user),
-                token: encodeToken(user.login),
+                user: {
+                    ...getResponseUser(user),
+                    token: encodeToken(user.login),
+                } 
+                
             };
 
             return res(ctx.json(body))

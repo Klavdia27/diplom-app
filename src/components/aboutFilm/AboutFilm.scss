@@ -1,0 +1,20 @@
+.about-film-group {
+    display: flex;
+    margin: 30px 10px;
+
+    .about-film-avatar {
+        width: 380px;
+        margin-right: 30px;
+    }
+    .about-film-summery {
+        font-size: 18px;
+        font-family:  Helvetica, Arial, sans-serif;
+    }
+    .subtitle {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    .about-film-trailer {
+        color: #ffffff;
+    }
+}

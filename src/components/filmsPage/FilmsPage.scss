@@ -1,8 +1,24 @@
 .films-page {
     display: flex;
     flex-wrap: wrap;
-    padding: 32px;
+    padding-top: 32px;
     width: 1160px;
-    margin: auto;
-    
+    margin: auto;  
+    justify-content: space-between;
+
+    .film-search {
+        border-left: 1px solid #5B5454;
+        padding: 0 100px;
+        display: flex;
+        align-items: center;    
+    }
+   
+}
+.css-19im320-MuiAutocomplete-root {
+    background-color: #ffffff;
+    border-radius: 3px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: 16px;
+
 }
