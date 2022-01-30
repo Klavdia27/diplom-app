@@ -7,94 +7,82 @@ import { AboutFilm } from "../aboutFilm/AboutFilm";
 import "./Cinemas.scss"
 
 
-
 export function Cinemas ()  {
-    let [cinemas, setCinemas] = useState(cinemaItems); 
-    let [films, setFilms] = useState(null) ;
+    let [cinemas, setCinemas] = useState(cinemaItems);  
+    let [films, setFilms] = useState(null);
+    let [currentCinema, setCurrentCinema] = useState('Все');
 
-    function changeActiveButton(e) { 
-        for (let i = 0; i < e.target.closest('.css-e53awj-MuiStack-root').children.length; i++) {
-            e.target.closest('.css-e53awj-MuiStack-root').children[i].classList.remove('active')
-        }
-        e.target.classList.add('active')
-    }
+    let CINEMAS = ["Все", "Центральный", "Октябрь", "Москва", "Берестье", "Беларусь"];
 
     function setCinemasFunction(e) { 
+        setCurrentCinema(e.target.dataset.cinema)
+
         if (e.target.dataset.cinema === 'Все') {
-            setCinemas(cinemaItems)
+            setCinemas(cinemaItems);
             return
         }
-
         setCinemas(() => {
             for (let i = 0; i < cinemaItems.length; i++) {
                 if (cinemaItems[i].name === e.target.dataset.cinema) {
-                    return [cinemaItems[i]]
+                    return [cinemaItems[i]];
                 }
             }
         })
     }
-
     function setFilmsFunction(e) { 
         setFilms([])
 
         if (e.target.dataset.cinema === 'Все') {
-            setFilms(null)
+            setFilms(null);
             return
         }
-
         for (let i = 0; i < filmItems.length; i++) {
             if (filmItems[i].cinema.includes(e.target.dataset.cinema)) {
-                setFilms(p => [...p, filmItems[i]])
+                setFilms(p => [...p, filmItems[i]]);
             }
         }
     }
 
     function chooseCinema(e) { 
         if (e.target.type === "button") {
-            changeActiveButton(e)
-            setCinemasFunction(e)
-            setFilmsFunction(e)
+            setCinemasFunction(e);
+            setFilmsFunction(e);
         }
     }
-
     return (
         <>
         <div className="group-button__cinemas">
             <div id="myBtnContainer">
                 <Stack spacing={2} direction="row" onClick={(e) => chooseCinema(e)}>
-                    <Button variant="contained" data-cinema="Все" className="btn active" > Все</Button>
-                    <Button variant="contained" data-cinema="Центральный" className="btn" > Центральный</Button>
-                    <Button variant="contained" data-cinema="Октябрь" className="btn" > Октябрь</Button>
-                    <Button variant="contained" data-cinema="Москва" className="btn" > Москва</Button>
-                    <Button variant="contained" data-cinema="Берестье" className="btn" > Берестье</Button>
-                    <Button variant="contained" data-cinema="Беларусь" className="btn" > Беларусь</Button>
+                    {CINEMAS.map(item => (
+                        <Button variant="contained" 
+                                data-cinema={item} 
+                                className={currentCinema === item ? "btn active " : "btn"}>
+                                    {item}
+                        </Button>
+                    ))}
                 </Stack>            
             </div>
         </div>
-
         <div className="group-decsr__cinemas">
             {cinemas.map(cinemaItem => 
                     <div className="cinema-item-active">
                         <div className="cinema-item">
                             <h2>{cinemaItem.name} </h2>
                             <p> Адрес кинотеатра: {cinemaItem.adress} </p>
-                            <div className="cinema-item-fotomap ">
-                                <img className="foto foto-hd" src={cinemaItem.foto} alt="foto"/>
-                                <iframe className="cinema-map " src={cinemaItem.map} title="cinema map" allowfullscreen="" loading="lazy"></iframe>
+                            <div className="cinema-item-fotomap">
+                                <img className="foto" src={cinemaItem.foto} alt="foto"/>
+                                <iframe className="cinema-map" src={cinemaItem.map} title="cinema map" width="500" height="300" allowfullscreen="" loading="lazy"></iframe>
                             </div>
                         </div>
                     </div>
                 )
             }
-
             <div className="films-page">
                 {films && films.map((item) => <AboutFilm key={item.id} film={item}/>)}
             </div>
-
             {(Array.isArray(films) && films.length === 0) && <p className="cinema-item-none">Фильмов нет!</p>}
         </div>
         </>
     )
 }
-
-//  className={className=`"btn", "active": ${ currentCinema === item}`}
