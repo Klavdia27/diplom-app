@@ -9,7 +9,7 @@ export function Review({ filmName }) {
 
     useEffect(() => {
         setReview(JSON.parse(localStorage.getItem(filmName)) ?? []);
-    }, [])
+    }, [filmName])
 
     function saveReview(e) {
         e.preventDefault();

@@ -61,10 +61,12 @@ function FilmsPage ({ film, translate, me, setMe, ...props  }) {
         {
             !selectFilm && 
                 <div className="films-page">
-                    <span className="text">
-                        {isLoading && <Loader/> }
-                        {isError && " Error..." }
-                    </span>
+                    {(isLoading || isError) && 
+                        <span className="text">
+                            {isLoading && <Loader/> }
+                            {isError && " Error..." }
+                        </span>
+                    }
                     {!isLoading && !isError && 
                         films.map(film => 
                             <FilmsPageCard key={film.id} film={film}/>
@@ -76,7 +78,7 @@ function FilmsPage ({ film, translate, me, setMe, ...props  }) {
             selectFilm &&  
             <> 
             <AboutFilm film={findFilm} />
-            <Review filmName={findFilm}/>
+            <Review filmName={selectFilm}/>
             </>  
 
         }

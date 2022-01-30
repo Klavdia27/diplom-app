@@ -28,7 +28,7 @@ function Nav({ translate, setLanguage, toggleTheme}) {
     const [showTime, setShowTime] = useState(true);
     
     return (    
-        <div className="container-nav">
+        <div className="container-nav container">
             <nav className="nav">
                 <ul className="nav">
                     {links.map((link, index) => (

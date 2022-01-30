@@ -11,18 +11,20 @@
         padding: 2px;
     }
     .nav {
-        width: 50%;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 0 20px; 
         list-style-type: none; 
         margin: 0;  
-        
+        @media (max-width: 900px) {
+            padding: 0;
+        }   
     }
     .link {
         cursor: pointer;
         color: var(--text);
+        padding: 0 8px;   
 
         &:hover {
             color: #aaaaaa;
