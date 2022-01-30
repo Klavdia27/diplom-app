@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import {Stack, Button} from '@mui/material';
 import cinemaItems from "../../mocks/dataBrowser/cinemaItems";
@@ -8,11 +8,18 @@ import "./Cinemas.scss"
 
 
 export function Cinemas ()  {
-    let [cinemas, setCinemas] = useState(cinemaItems);  
-    let [films, setFilms] = useState(null);
-    let [currentCinema, setCurrentCinema] = useState('Все');
+    const [cinemas, setCinemas] = useState(cinemaItems);  
+    const [films, setFilms] = useState(null);
+    const [currentCinema, setCurrentCinema] = useState("Все");
+    const [CINEMAS, setCINEMAS] = useState(["Все"]);  
 
-    let CINEMAS = ["Все", "Центральный", "Октябрь", "Москва", "Берестье", "Беларусь"];
+    useEffect(() => {
+        let temp = [];
+        for (let i = 0; i < cinemaItems.length; i++) {
+            temp.push(cinemaItems[i].name)
+        }
+        setCINEMAS(p => [...p, ...temp])
+    }, []);
 
     function setCinemasFunction(e) { 
         setCurrentCinema(e.target.dataset.cinema)
