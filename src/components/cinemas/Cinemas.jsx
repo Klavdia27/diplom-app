@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {Stack, Button} from '@mui/material';
 import cinemaItems from "../../mocks/dataBrowser/cinemaItems";
 import filmItems from "../../mocks/dataBrowser/films";
@@ -22,7 +21,7 @@ export function Cinemas ()  {
     }, []);
 
     function setCinemasFunction(e) { 
-        setCurrentCinema(e.target.dataset.cinema)
+        setCurrentCinema(e.target.dataset.cinema);
 
         if (e.target.dataset.cinema === 'Все') {
             setCinemas(cinemaItems);
@@ -79,7 +78,7 @@ export function Cinemas ()  {
                             <p> Адрес кинотеатра: {cinemaItem.adress} </p>
                             <div className="cinema-item-fotomap">
                                 <img className="foto" src={cinemaItem.foto} alt="foto"/>
-                                <iframe className="cinema-map" src={cinemaItem.map} title="cinema map" width="500" height="300" allowfullscreen="" loading="lazy"></iframe>
+                                <iframe className="cinema-map" src={cinemaItem.map} title="cinema map" allowfullscreen="" loading="lazy"></iframe>
                             </div>
                         </div>
                     </div>

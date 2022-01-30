@@ -5,7 +5,7 @@
     justify-content: space-between;
     line-height: 40px;
     border-bottom: 5px solid #410707;
-    
+       
     .sizebutton {
         margin: 0px;
         padding: 2px;
@@ -20,6 +20,10 @@
         @media (max-width: 900px) {
             padding: 0;
         }   
+    }
+    .languages {
+        margin-left: auto;
+        margin-right: 20px;
     }
     .link {
         cursor: pointer;

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-
 import { Time } from "../time/Time";
 import { withTranslator } from "../../hoc/withTranslator.jsx";
 import { withTheme } from "../../hoc/withTheme.jsx";

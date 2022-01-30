@@ -1,16 +1,14 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import { Button } from '@mui/material';
-
+import { getFilms } from "../../api/filmsApi";
 import { withTranslator } from "../../hoc/withTranslator";
 import { withMe } from "../../hoc/withMe";
-import { getFilms } from "../../api/filmsApi";
+
 
 import cinemaTicket from "./img/cinema-ticket.png";
 
-
 import "./Header.scss";
-
 
 function Header({ translate, me, setMe, ...props  }) {
     const [films, setFilms] = useState([]);
