@@ -4,6 +4,7 @@ import { TextField, Autocomplete } from '@mui/material';
 import { getFilms } from "../../api/filmsApi";
 import { FilmsPageCard } from "./card/FilmsPageCard";
 import MultipleSlides from "../multipleSlides/MultipleSlides.jsx";
+import { Review } from "../review/Review";
 import { AboutFilm } from "../aboutFilm/AboutFilm";
 import { withTranslator } from "../../hoc/withTranslator";
 import { withMe } from "../../hoc/withMe";
@@ -13,7 +14,8 @@ import Loader from "../loader/Loader.jsx";
 import "./FilmsPage.scss";
 
 
-function FilmsPage ({ translate, me, setMe, ...props  }) {
+
+function FilmsPage ({ film, translate, me, setMe, ...props  }) {
     const [films, setFilms] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
@@ -59,10 +61,12 @@ function FilmsPage ({ translate, me, setMe, ...props  }) {
         {
             !selectFilm && 
                 <div className="films-page">
-                    <span className="text">
-                        {isLoading && <Loader/> }
-                        {isError && " Error..." }
-                    </span>
+                    {(isLoading || isError) && 
+                        <span className="text">
+                            {isLoading && <Loader/> }
+                            {isError && " Error..." }
+                        </span>
+                    }
                     {!isLoading && !isError && 
                         films.map(film => 
                             <FilmsPageCard key={film.id} film={film}/>
@@ -74,7 +78,9 @@ function FilmsPage ({ translate, me, setMe, ...props  }) {
             selectFilm &&  
             <> 
             <AboutFilm film={findFilm} />
-            </>       
+            <Review filmName={selectFilm}/>
+            </>  
+
         }
         </>
 

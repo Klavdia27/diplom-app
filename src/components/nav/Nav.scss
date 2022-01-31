@@ -5,24 +5,30 @@
     justify-content: space-between;
     line-height: 40px;
     border-bottom: 5px solid #410707;
-    
+       
     .sizebutton {
         margin: 0px;
         padding: 2px;
     }
     .nav {
-        width: 50%;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 0 20px; 
         list-style-type: none; 
         margin: 0;  
-        
+        @media (max-width: 900px) {
+            padding: 0;
+        }   
+    }
+    .languages {
+        margin-left: auto;
+        margin-right: 20px;
     }
     .link {
         cursor: pointer;
         color: var(--text);
+        padding: 0 8px;   
 
         &:hover {
             color: #aaaaaa;

@@ -15,9 +15,20 @@ body {
 }
 
 .swiper {
-    width: 832px;
-    height: 468px;
-    margin-top: 20px;
+  width: 832px;
+  height: 468px;
+  margin-top: 20px;
+  @media (max-width: 1160px)  {
+    width: 90%;
+  }
+  @media (max-width: 895px)  {
+    width: 608px;
+    height: 342px;
+  }
+  @media (max-width: 760px)  {
+    width: 400px;
+    height: 225px;
+  }
 }
 
 .swiper-slide {
@@ -45,10 +56,14 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+
 }
 
 .swiper-zoom-container {
     width: 832px;
     height: 468px;
-
+    @media (max-width: 895px)  {
+      width: 608px;
+      height: 342px;
+    }
 }

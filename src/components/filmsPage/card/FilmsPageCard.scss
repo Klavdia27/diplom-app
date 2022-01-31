@@ -8,10 +8,26 @@
     background-color: #423E3E;
     border-radius: 5px;
     cursor: pointer;
+    @media (max-width: 1073px) {
+        max-width: 200px;
+        width: 200px;
+    }
+    @media (max-width: 884px) {
+        max-width: 250px;
+        width: 250px;
+    }
 
     .avatar {
         max-width: 245px;
         border-radius: 5px;
+        @media (max-width: 1073px) {
+            max-width: 195px;
+            width: 195px;
+        }
+        @media (max-width: 884px) {
+            max-width: 245px;
+            width: 245px;
+        }
     }
     .name {
         display: block;

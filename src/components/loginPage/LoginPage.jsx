@@ -22,8 +22,7 @@ function LoginPage({ translate, me, setMe }) {
         if (me) {
             navigate("/buyticket")
         }
-    }, [me])
-
+    }, [me]);
 
     const handleInput = (setFunction) => (e) => {
         setError(false);
@@ -43,8 +42,6 @@ function LoginPage({ translate, me, setMe }) {
                 setLoading(false);
             })
     }
-
-
 
     return (
         <div className="login-page">

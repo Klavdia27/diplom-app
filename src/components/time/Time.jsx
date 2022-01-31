@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Tooltip } from "@mui/material";
-
 import { withTranslator } from "../../hoc/withTranslator";
 import { getTime } from "../../helpers/timeHelper";
-
 import { ReactComponent  as TimeIcon } from "../../icons/time.svg";
 
 import "./Time.scss";
-import { useCallback } from "react/cjs/react.development";
 
 const SHOW_TIME = "showTime";
 
@@ -28,12 +24,8 @@ function _Time({ translate}) {
     return (
         <div className="time-container">
             {show && <span> {now} </span>}
-
-            <span className="tooltip-time"><TimeIcon onClick={handleToggleTime} title={translate("time.toggle.tooltip")} /> </span>
-            
-            
-        </div>
-       
+            <span className="tooltip-time"><TimeIcon onClick={handleToggleTime} title={translate("time.toggle.tooltip")} /> </span>    
+        </div> 
     )
 }
 

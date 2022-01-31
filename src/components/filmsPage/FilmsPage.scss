@@ -2,9 +2,15 @@
     display: flex;
     flex-wrap: wrap;
     padding-top: 32px;
-    width: 1160px;
+    max-width: 1160px;
     margin: auto;  
     justify-content: space-between;
+    @media (max-width: 1160px) {
+        max-width: 1000px;
+    }
+    @media (max-width: 722px) {
+        justify-content: center;
+    }
 
     .film-search {
         border-left: 1px solid #5B5454;

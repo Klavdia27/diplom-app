@@ -3,20 +3,23 @@
 
 .app {
   background-color: var(--background);
-
   display: flex;
-  flex-direction: column;
-  
-  color: white;
- 
+  flex-direction: column;  
+  color: white; 
   
   .app__main {
     min-height: 100vh;
+    
   }
   .container {
     margin: auto;
-    width: 1160px;
+    max-width: 1160px;
+    padding: 0 20px;
+    @media (max-width: 1160px) {
+      width: 80%;
+      margin: auto;
+      padding: 0 20px;
+
+    }
   }
-
-
 }

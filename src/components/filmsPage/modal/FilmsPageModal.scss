@@ -2,9 +2,17 @@
     display: flex;
     max-width: 900px;
     width: 900px;
+    @media (max-width: 1040px) {
+        max-width: 600px;
+        width: 600px;
+    }   
     .avatar {
         width: 300px;
         padding-right: 20px;
+        @media (max-width: 1040px) {
+            max-width: 220px;
+            width: 220px;
+        }   
     }
    .summery {
        color: black;

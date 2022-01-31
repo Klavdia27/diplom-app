@@ -1,0 +1,20 @@
+.review__textarea {
+    width: calc(100% - 90px);
+}
+.review__form {
+    display: flex;
+    height: 55px;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+.review__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.review__modify {
+    width: calc(100% - 170px);
+}
+.review__none {
+    display: none;
+}
